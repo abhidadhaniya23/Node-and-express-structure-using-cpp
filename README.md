@@ -1,7 +1,7 @@
 
 # Node and express structure using c++ program
 
-We know that, we all programmers are too lazy :sweat_smile: So that I craeted this repository :star_struck:
+We know that, we all programmers are too lazy :sweat_smile: So that I created this repository :star_struck:
 You can do some below tasks using compiled .exe file.
 
 - Install express
@@ -105,7 +105,7 @@ And you got compiled .exe file.
 
 Contributions are always welcome!
 
-If you want to add more code then please help to make this repository best.
+If you want to add more code and please help me to make this great repository.
 
 
 ### Thank you so much for read this documentation :)
