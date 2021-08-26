@@ -105,7 +105,7 @@ And you got compiled .exe file.
 
 Contributions are always welcome!
 
-If you want to add more code then please help others to add more code in this repository.
+If you want to add more code then please help to make this repository best.
 
 
 ### Thank you so much for read this documentation :)
