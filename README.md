@@ -102,6 +102,21 @@ g++ -o program program.cpp
 ```
 And you got compiled .exe file.
 
+## Compile Tailwind css file (optional)
+
+You don't need to do it again but this is for your knowledge.
+
+set script in package.json
+```json
+"build": "tailwindcss -i public/css/tailwind.css -o public/css/style.css"
+```
+
+## Fix Execution script is disabled error in terminal
+
+If you facing any error like `Execution script is disabled` in terminal while compiling tailwind file in output file then watch this youtube video.
+
+[Fix Execution script is disabled error in terminal](https://www.youtube.com/watch?v=mioNcXz06FQ&ab_channel=MDTechVideos)
+
 
 ## Contributing
 
@@ -110,4 +125,4 @@ Contributions are always welcome!
 If you wish to add more codes then join me to make this a great repository.
 
 
-### Thank you so much for read this documentation :)
+### Thank you so much for reading this documentation :)

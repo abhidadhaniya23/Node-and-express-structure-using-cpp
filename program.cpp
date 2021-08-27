@@ -94,7 +94,10 @@ public:
         remove("app.js");
 
         // compile tailwindcss file
-        system("npx tailwindcss build ./public.css.tailwind.css -o ./public/css/style.css");
+        // 1st way
+        // system("npx tailwindcss build ./public.css.tailwind.css -o ./public/css/style.css");
+        // 2nd way
+        system("tailwindcss -i public/css/tailwind.css -o public/css/style.css");
     }
 };
 
