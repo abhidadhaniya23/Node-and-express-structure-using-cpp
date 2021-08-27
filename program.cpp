@@ -202,6 +202,7 @@ void getData() {
 }
 
 void installing(string packageName) {
+    cout << endl;
     cout << "Installing " << packageName << " Packege..." << endl;
     cout << endl;
 }
