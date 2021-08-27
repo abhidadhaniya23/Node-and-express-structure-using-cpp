@@ -1,8 +1,9 @@
 
+
 # Node and express structure using c++ program
 
-We know that, we all programmers are too lazy :sweat_smile: So that I created this repository :star_struck:
-You can do some below tasks using compiled .exe file.
+We all know, we the programmers are too lazy :sweat_smile: therefore, I created this repository :star_struck:
+Following tasks cab be performed using compiled .exe file:
 
 - Install express
 - Install nodemon as dev-dependency
@@ -15,34 +16,32 @@ You can do some below tasks using compiled .exe file.
 - Install setup for Tailwindcss (include express and nodemon)
 - Install setup for Tailwindcss (include express, nodemon and Ejs)
 
-This program will not only install packages but it's will also create folder structures for `route`, `views`, `public` according to your need.
+This program will not only install package(s) but it will also create folder structures for `route`, `views`, `public` according to your need.
 
 
 ## Documentation
 
 How to use it ?
 
-You can simply download .exe (compiled file of c++ program) and copy to your node & express project and run it. Then you saw some instructions and you can enter number according what you want to do !
+Simply download .exe (compiled file of c++ program), copy to your node & express project and run it. Lastly, enter the numbers according to the list mentioned above & as per your requirement.
 
 ## Node NPM
 
-Make sure you installed node in your local machine.
+Make sure you've installed node in your local machine.
 
-If you don't want to download all packages from internet everytime then download it for global. Here is the command to download any package from npm globally
+If you don't want to download all packages from internet again & again, then download it globally. Here is the command to download any package from npm globally:
 
 
 ```bash
   npm install -g <package-name>
 ```
-For example you can download express package for globally like this type `npm install -g express`
+For example, you can download express package globally like this: `npm install -g express`
 
 ## User snippets for require packages
 
-you can create user snippets for don't write code many time.
+Create snippets to prevent writing the codes all over again.
 
-You can go `file > preferences > user snippets` in vs-code and create snippets for js file.
-
-Enter below code in snippets file
+Follow the following direction `file > preferences > user snippets` in vs-code and enter the below code to create snippet for js file.
 
 ```javascript
 {
@@ -89,7 +88,7 @@ Enter below code in snippets file
 	},
 }
 ```
-Now you can use prefix like `ejs`, `express`, `fs`, `os`, `path` and you will get some suggetions for require that package And you don't need to write full line to require any package. You can create more snippets like this type.
+Now use prefixes like `ejs`, `express`, `fs`, `os`, `path` and you will be provided with some suggestions for the package & you can accomplish your work shortly.
 
 ## Compile c++ program using terminal
 
@@ -100,14 +99,14 @@ You can use it like
 ```c++
 g++ -o program program.cpp
 ```
-And you got compiled .exe file.
+Now you have the compiled .exe file.
 
 
 ## Contributing
 
-Contributions are always welcome!
+Contributions are always welcomed!
 
-If you wish to add more codes then join me to make this a great repository.
+If you wish to add more codes then join me to make this repository a great success.
 
 
 ### Thank you so much for read this documentation :)
