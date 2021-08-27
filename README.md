@@ -15,7 +15,7 @@ You can do some below tasks using compiled .exe file.
 - Install setup for Tailwindcss (include express and nodemon)
 - Install setup for Tailwindcss (include express, nodemon and Ejs)
 
-This program will not only install packages but its also created folder structures for `route`, `views`, `public` according to your need.
+This program will not only install packages but it's will also create folder structures for `route`, `views`, `public` according to your need.
 
 
 ## Documentation
