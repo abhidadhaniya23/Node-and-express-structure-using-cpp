@@ -3,14 +3,18 @@
 using namespace std;
 
 void getData();
+void installing(string packageName);
 
 class expressSetup {
 public:
     void npmInitialize() {
+        cout << "Initializing your repository" << endl << endl;
         system("npm init -y");
     }
     void installBasicSetup() {
+        installing("Express");
         system("npm i express");
+        installing("Nodemon");
         system("npm i -D nodemon");
     }
     void gitIgnore() {
@@ -23,21 +27,27 @@ public:
 class saprateInstallment {
 public:
     void express() {
+        installing("Express");
         system("npm i express");
     }
     void nodemon() {
+        installing("Nodemon");
         system("npm i -D nodemon");
     }
     void ejs() {
+        installing("EJS");
         system("npm i ejs");
     }
     void tailwindcss() {
+        installing("Tailwindcss");
         system("npm i tailwindcss");
     }
     void lodash() {
+        installing("Lodash");
         system("npm i lodash");
     }
     void axios() {
+        installing("Axios");
         system("npm i axios");
     }
 };
@@ -55,10 +65,6 @@ public:
         MyFile.close();
     }
     void ejsFolderStructure() {
-        // also install node, express & ejs
-        npmInitialize();
-        installBasicSetup();
-        gitIgnore();
         system("mkdir partials");
         system("mkdir views");
         system("mkdir public");
@@ -70,6 +76,25 @@ public:
         MyFile.close();
         system("node app.js");
         remove("app.js");
+    }
+    void tailwindcssStructure() {
+        system("mkdir public");
+        // make public/css directory
+        ofstream MyFile("app.js");
+        MyFile << "const fs = require('fs');const folderName='css';fs.mkdir(`./public/${folderName}`, { recursive: true }, function(err) {if (err) {console.log(err)} else {console.log(`${folderName} directory successfully created inside public folder`)}})";
+        MyFile.close();
+        system("node app.js");
+        remove("app.js");
+
+        //create public/css/tailwind.css
+        ofstream tailwindCssFileCreate("app.js");
+        tailwindCssFileCreate << "const fs = require('fs');const fileName = 'tailwind';try {fs.writeFileSync(`./public/css/${fileName}.css`, `@tailwind base;\n@tailwind components;\n@tailwind utilities;`);}catch (error) {console.log(`tailwind.css file didn't created...`); console.log('Error : ' + error);}";
+        tailwindCssFileCreate.close();
+        system("node app.js");
+        remove("app.js");
+
+        // compile tailwindcss file
+        system("npx tailwindcss build ./public.css.tailwind.css -o ./public/css/style.css");
     }
 };
 
@@ -119,14 +144,27 @@ int main() {
         getData();
         break;
     case 8:
+        setExpress.npmInitialize();
+        setExpress.installBasicSetup();
+        setExpress.gitIgnore();
+        setFolder.serverfile();
         setFolder.ejsFolderStructure();
         getData();
         break;
     case 9:
-        // inclomplete
+        setExpress.npmInitialize();
+        setExpress.installBasicSetup();
+        setExpress.gitIgnore();
+        setFolder.serverfile();
+        setFolder.tailwindcssStructure();
         break;
     case 10:
-        // incomplete
+        setExpress.npmInitialize();
+        setExpress.installBasicSetup();
+        setExpress.gitIgnore();
+        setFolder.serverfile();
+        setFolder.tailwindcssStructure();
+        setFolder.ejsFolderStructure();
         break;
 
     default:
@@ -158,8 +196,9 @@ void getData() {
 
     cout << "Now, What you want to do ? (enter number) : ";
     cin >> userChoice;
+}
 
-    // cout << "1. Setup basic node-express structure" << endl;
-    // cout << "2. Setup full node-express folder structure" << endl;
-    // cout << "3. Delete all node setup files." << endl;
+void installing(string packageName) {
+    cout << "Installing " << packageName << " Packege..." << endl;
+    cout << endl;
 }
