@@ -15,12 +15,14 @@ You can do some below tasks using compiled .exe file.
 - Install setup for Tailwindcss (include express and nodemon)
 - Install setup for Tailwindcss (include express, nodemon and Ejs)
 
+This program will not only install packages but its also created folder structures for `route`, `views`, `public` according to your need.
+
 
 ## Documentation
 
 How to use it ?
 
-You can simply download .exe (compiled file of c++ program) and run it. Then you saw some instructions and you can enter number according what you want to do !
+You can simply download .exe (compiled file of c++ program) and copy to your node & express project and run it. Then you saw some instructions and you can enter number according what you want to do !
 
 ## Node NPM
 
