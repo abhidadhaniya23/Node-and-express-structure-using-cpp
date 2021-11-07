@@ -67,7 +67,7 @@ public:
         system("mkdir routes");
     }
     void serverfile() {
-        ofstream MyFile("server.js");
+        ofstream MyFile("app.js");
         MyFile << "const express = require('express')\nconst app = express()\n\nconst port = 3000\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(port, () => {\n\tconsole.log(`Example app listening at http ://localhost:${port}`)\n})";
         MyFile.close();
     }
@@ -99,6 +99,15 @@ public:
         tailwindCssFileCreate.close();
         system("node app.js");
         remove("app.js");
+
+        // creating config files for purge the css
+        ofstream configFile1("tailwind.config.js");
+        configFile1 << "module.exports = { \nmode: 'jit', \npurge: [\n'./views/**/*.ejs', \n'./views/*.ejs', \n'./public/**/*.html', \n'./public/*.html'\n], \ndarkMode: false, \ntheme: { \nextend: { \nfontFamily: {}\n }, \n }, \nvariants: { \nextend: {}, \n }, \nplugins: [], \n }";
+        configFile1.close();
+
+        ofstream configFile2("postcss.config.js");
+        configFile2 << "module.exports = {\nplugins: {\ntailwindcss: {},\nautoprefixer: {},\n},\n}";
+        configFile2.close();
 
         // compile tailwindcss file
         // 1st way
