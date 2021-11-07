@@ -22,7 +22,7 @@ public:
         gitFile << "node_modules/";
         gitFile.close();
     }
-};
+}setExpress;
 
 class saprateInstallment {
 public:
@@ -38,9 +38,16 @@ public:
         installing("EJS");
         system("npm i ejs");
     }
+    void mongoose() {
+        installing("Mongoose");
+        system("npm i mongoose");
+    }
     void tailwindcss() {
         installing("Tailwindcss");
         system("npm i tailwindcss");
+        system("npm i autoprefixer");
+        system("npm i postcss");
+        system("npm i postcss-cli");
     }
     void lodash() {
         installing("Lodash");
@@ -50,7 +57,7 @@ public:
         installing("Axios");
         system("npm i axios");
     }
-};
+}installModules;
 
 class folderStructure :public expressSetup {
 public:
@@ -61,7 +68,7 @@ public:
     }
     void serverfile() {
         ofstream MyFile("server.js");
-        MyFile << "const express = require('express')\nconst app = express()\nconst port = 3000\napp.get('/', (req, res) = > {\n\tres.send('Hello World!')\n})\napp.listen(port, () = > {\n\tconsole.log(`Example app listening at http ://localhost:${port}`)\n})";
+        MyFile << "const express = require('express')\nconst app = express()\n\nconst port = 3000\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(port, () => {\n\tconsole.log(`Example app listening at http ://localhost:${port}`)\n})";
         MyFile.close();
     }
     void ejsFolderStructure() {
@@ -99,82 +106,92 @@ public:
         // 2nd way
         system("tailwindcss -i public/css/tailwind.css -o public/css/style.css");
     }
-};
+    void databaseStructure() {
+        // just creating a folder model
+        system("mkdir model");
+    }
+}setFolder;
 
 int userChoice;
 
 int main() {
-    // instructions for user
-    system("cls");
-    getData();
+    do {
 
-    // creating objects per class
-    expressSetup setExpress;
-    saprateInstallment installModules;
-    folderStructure setFolder;
+        // instructions for user
+        system("cls");
+        getData();
 
-    // According to user's choice using switch case
-    switch (userChoice) {
-    case 1:
-        installModules.express();
-        getData();
-        break;
-    case 2:
-        installModules.nodemon();
-        getData();
-        break;
-    case 3:
-        installModules.ejs();
-        getData();
-        break;
-    case 4:
-        installModules.tailwindcss();
-        getData();
-        break;
-    case 5:
-        installModules.lodash();
-        getData();
-        break;
-    case 6:
-        installModules.axios();
-        getData();
-        break;
-    case 7:
-        setExpress.npmInitialize();
-        setExpress.installBasicSetup();
-        setExpress.gitIgnore();
-        setFolder.serverfile();
-        getData();
-        break;
-    case 8:
-        setExpress.npmInitialize();
-        setExpress.installBasicSetup();
-        setExpress.gitIgnore();
-        setFolder.serverfile();
-        setFolder.ejsFolderStructure();
-        getData();
-        break;
-    case 9:
-        setExpress.npmInitialize();
-        setExpress.installBasicSetup();
-        setExpress.gitIgnore();
-        setFolder.serverfile();
-        setFolder.tailwindcssStructure();
-        break;
-    case 10:
-        setExpress.npmInitialize();
-        setExpress.installBasicSetup();
-        setExpress.gitIgnore();
-        setFolder.serverfile();
-        setFolder.tailwindcssStructure();
-        setFolder.ejsFolderStructure();
-        break;
+        // According to user's choice using switch case
+        switch (userChoice) {
+        case 1:
+            installModules.express();
+            getData();
+            break;
+        case 2:
+            installModules.nodemon();
+            getData();
+            break;
+        case 3:
+            installModules.ejs();
+            getData();
+            break;
+        case 4:
+            installModules.tailwindcss();
+            getData();
+            break;
+        case 5:
+            installModules.lodash();
+            getData();
+            break;
+        case 6:
+            installModules.axios();
+            getData();
+            break;
+        case 7:
+            installModules.mongoose();
+            setFolder.databaseStructure();
+            getData();
+            break;
+        case 8:
+            setExpress.npmInitialize();
+            setExpress.installBasicSetup();
+            setExpress.gitIgnore();
+            setFolder.serverfile();
+            getData();
+            break;
+        case 9:
+            setExpress.npmInitialize();
+            setExpress.installBasicSetup();
+            setExpress.gitIgnore();
+            setFolder.serverfile();
+            setFolder.ejsFolderStructure();
+            getData();
+            break;
+        case 10:
+            setExpress.npmInitialize();
+            setExpress.installBasicSetup();
+            installModules.tailwindcss();
+            setExpress.gitIgnore();
+            setFolder.serverfile();
+            setFolder.tailwindcssStructure();
+            break;
+        case 11:
+            setExpress.npmInitialize();
+            setExpress.installBasicSetup();
+            installModules.ejs();
+            installModules.tailwindcss();
+            setExpress.gitIgnore();
+            setFolder.serverfile();
+            setFolder.tailwindcssStructure();
+            setFolder.ejsFolderStructure();
+            break;
 
-    default:
-        cout << "Invalid Number" << endl;
-        break;
-    }
+        default:
+            cout << "Invalid Number" << endl;
+            break;
+        }
 
+    } while (true);
     return 0;
 }
 
@@ -188,13 +205,16 @@ void getData() {
     cout << "4. Install tailwindcss" << endl;
     cout << "5. Install lodash" << endl;
     cout << "6. Install axios" << endl;
+    cout << "7. Install Mongoose" << endl;
     cout << endl;
-    cout << "7. Install basic setup for express and nodemon" << endl;
-    cout << "8. Install setup for ejs (included express and nodemon)" << endl;
-    cout << "9. Install setup for Tailwindcss (include express and nodemon)" << endl;
-    cout << "10. Install setup for Tailwindcss (include express, nodemon and Ejs)" << endl;
+    cout << "8. Install basic setup for express and nodemon" << endl;
+    cout << "9. Install setup for ejs (included express and nodemon)" << endl;
+    cout << "10. Install setup for Tailwindcss (include express and nodemon)" << endl;
+    cout << "11. Install setup for Tailwindcss (include express, nodemon and Ejs)" << endl;
     cout << endl;
     cout << "press ctrl+c to exit from this loop" << endl;
+    cout << endl;
+    cout << "\"start\": \"node app.js\",\n\"dev\": \"nodemon app.js\",\n\"build\": \"postcss ./public/css/tailwind.css -o ./public/css/style.css -w\"" << endl;
     cout << endl;
 
     cout << "Now, What you want to do ? (enter number) : ";
@@ -203,6 +223,6 @@ void getData() {
 
 void installing(string packageName) {
     cout << endl;
-    cout << "Installing " << packageName << " Packege..." << endl;
+    cout << "Installing " << packageName << " Package..." << endl;
     cout << endl;
 }
