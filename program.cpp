@@ -70,6 +70,7 @@ public:
         ofstream MyFile("app.js");
         MyFile << "const express = require('express')\nconst app = express()\n\nconst port = 3000\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(port, () => {\n\tconsole.log(`Example app listening at http ://localhost:${port}`)\n})";
         MyFile.close();
+        cout << endl << "Server file created..." << endl;
     }
     void ejsFolderStructure() {
         system("mkdir partials");
@@ -79,7 +80,7 @@ public:
         // Create and open a text file
         ofstream MyFile("app.js");
         // Write to the file
-        MyFile << "const path = require('path');const fs = require('fs');const fileName = 'index';try {fs.writeFileSync(`./views/${fileName}.ejs`,`<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF - 8\"><meta http-equiv=\"X - UA - Compatible\" content=\"IE = edge\"><meta name=\"viewport\" content=\"width = device - width, initial - scale = 1.0\"><title></title></head><body></body></html>`);}catch (error) {console.log(`file didn't created...`);console.log('Error : ' + error);}";
+        MyFile << "const path = require('path');const fs = require('fs');const fileName = 'index';try {fs.writeFileSync(`./views/${fileName}.ejs`,`<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF - 8\"><meta http-equiv=\"X - UA - Compatible\" content=\"IE = edge\"><meta name=\"viewport\" content=\"width = device - width, initial - scale = 1.0\"><title></title><link rel=\"stylesheet\" href=\"css/style.css\"></head><body></body></html>`);}catch (error) {console.log(`file didn't created...`);console.log('Error : ' + error);}";
         MyFile.close();
         system("node app.js");
         remove("app.js");
@@ -134,55 +135,46 @@ int main() {
         switch (userChoice) {
         case 1:
             installModules.express();
-            getData();
             break;
         case 2:
             installModules.nodemon();
-            getData();
             break;
         case 3:
             installModules.ejs();
-            getData();
             break;
         case 4:
             installModules.tailwindcss();
-            getData();
             break;
         case 5:
             installModules.lodash();
-            getData();
             break;
         case 6:
             installModules.axios();
-            getData();
             break;
         case 7:
             installModules.mongoose();
             setFolder.databaseStructure();
-            getData();
             break;
         case 8:
             setExpress.npmInitialize();
             setExpress.installBasicSetup();
             setExpress.gitIgnore();
             setFolder.serverfile();
-            getData();
             break;
         case 9:
             setExpress.npmInitialize();
             setExpress.installBasicSetup();
             setExpress.gitIgnore();
-            setFolder.serverfile();
             setFolder.ejsFolderStructure();
-            getData();
+            setFolder.serverfile();
             break;
         case 10:
             setExpress.npmInitialize();
             setExpress.installBasicSetup();
             installModules.tailwindcss();
             setExpress.gitIgnore();
-            setFolder.serverfile();
             setFolder.tailwindcssStructure();
+            setFolder.serverfile();
             break;
         case 11:
             setExpress.npmInitialize();
@@ -190,9 +182,9 @@ int main() {
             installModules.ejs();
             installModules.tailwindcss();
             setExpress.gitIgnore();
-            setFolder.serverfile();
             setFolder.tailwindcssStructure();
             setFolder.ejsFolderStructure();
+            setFolder.serverfile();
             break;
 
         default:
